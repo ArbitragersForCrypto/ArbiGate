@@ -5,5 +5,5 @@ find_package(cpprestsdk REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system)
 find_package(OpenSSL REQUIRED)
 
-add_executable(bin/test1 src/test1.cpp)
+add_executable(test1 src/test1.cpp)
 target_link_libraries(test1 PRIVATE cpprestsdk::cpprest)
