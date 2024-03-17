@@ -7,19 +7,23 @@ using namespace web::http::client;
 
 int main() {
     //创建一个 http_client 对象
-    http_client client(U("http://www.bing.com"));
+    http_client client(U("https://api.gateio.ws/api/v4/spot/currencies/GT"));
     
-    // 构建请求 URI 和发送 GET 请求
-    uri_builder builder(U("/search"));
-    http_response response = client.request(methods::GET, builder.to_string()).get();
+    //构建请求并设置头部信息
+    http_request request(methods::GET);
+    request.headers().add(U("Content-Type"), U("application/json"));
+    request.headers().add(U("Accept"), U("application/json"));
 
-    // 输出响应的状态码
+    // 发送请求并接收响应
+    http_response response = client.request(request).get();
+
+    //输出相应的状态码和内容
     if (response.status_code() == status_codes::OK) {
         utility::string_t body = response.extract_string().get();
-        std::wcout << body << std::endl;
+        std::cout << "Response body: " << body << std::endl;
     } else {
-        std::wcout << "Error: " << response.status_code() << std::endl;
+        std::cout << "Error: " << response.status_code() << std::endl;
     }
-
-    return 0;
+    
+    return 0; 
 }
