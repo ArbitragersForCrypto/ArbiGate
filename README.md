@@ -5,4 +5,4 @@
 
 主界面：可以选择账号进行操控，并且显示正在运行的账号和账号内余额，开仓金额
 
-操作界面：
+基本流程图：https://l3wbkb12a7.feishu.cn/docx/MiQ2dcYtjoWOtxxjFhmcVorCnsb?from=from_copylink
